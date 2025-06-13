@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Shield, Users, FileText, Award, Phone, Mail, MapPin, Star, ArrowRight, CheckCircle, Building, Scale, Calendar, PlayCircle, TrendingUp, Clock, AlertCircle, UserCheck, BookOpen, Briefcase, Target, Globe, Database, PieChart } from 'lucide-react';
+import { ChevronRight, Shield, Users, FileText, Award, Phone, Mail, MapPin, Star, ArrowRight, CheckCircle, Building, Scale, Calendar, PlayCircle, TrendingUp, Clock, AlertCircle, UserCheck, BookOpen, Briefcase, Target, Globe, Database, PieChart, ArrowUp } from 'lucide-react';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,61 +22,68 @@ function Home() {
     };
   }, []);
 
+    const [isScrollBtnVisible, setIsScrollBtnVisible] = useState(false);
+
+  // Show button when page is scrolled down
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsScrollBtnVisible(true);
+      } else {
+        setIsScrollBtnVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  // Scroll to top smoothly
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const services = [
     {
       icon: <Building className="w-8 h-8" />,
       title: "RERA Registration for Real Estate Projects",
       description: "Complete RERA project registration services across India with end-to-end support for promoters and developers.",
-      features: ["Eligibility Check & Advisory", "Document Collection & Vetting", "RERA Portal Uploads", "Authority Coordination"],
+      features: ["Eligibility Check & Advisory", "Collection and Vetting of Documents", "Preparation of Declarations & Affidavits", "Coordination with RERA Authority"],
       highlight: "Most Popular"
     },
     {
       icon: <UserCheck className="w-8 h-8" />,
       title: "RERA Registration for Real Estate Agents",
-      description: "Comprehensive agent license registration with complete documentation and compliance support.",
-      features: ["Document Preparation", "Online Application Submission", "Fee Payment Assistance", "Renewal Support"]
+      description: "We assist real estate agents and channel partners in obtaining their RERA agent license.",
+      features: ["Document Preparation", "Online Application Submission", "Payment of Registration Fees", "Renewal & Compliance Support"]
     },
     {
       icon: <FileText className="w-8 h-8" />,
       title: "Quarterly Progress Reports (QPR)",
-      description: "Timely and accurate QPR submissions ensuring your project remains compliant with RERA requirements.",
-      features: ["Data Collection & Formatting", "Progress Report Drafting", "RERA Portal Filing", "Audit-Ready Reporting"]
+      description: "Every registered project must submit quarterly progress updates. We ensure timely and accurate QPR submissions.",
+      features: ["Data Collection & Formatting", "Drafting Project Updates", "Filing on RERA Portal", "Audit-Ready Reporting"]
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "RERA Advisory & Legal Compliance",
       description: "Continuous guidance and consulting to ensure your project remains fully compliant throughout its lifecycle.",
-      features: ["Ongoing Disclosure Advisory", "Sale Agreement Drafting", "RERA Notice Response", "Compliance Inspections"]
+      features: ["Advisory on Ongoing Disclosures", "Drafting Sale Agreements per RERA", "Responding to RERA Notices", "Handling Compliance Inspections"]
     },
     {
       icon: <PieChart className="w-8 h-8" />,
       title: "RERA CA Certification",
-      description: "Professional CA certifications for Form 3 and fund withdrawal requirements from project accounts.",
-      features: ["Fund Utilization Certifications", "Project Completion Verification", "Bank Coordination", "Stage-wise Approvals"]
+      description: "We collaborate with Chartered Accountants to issue Form 3 and other RERA certifications for fund withdrawal.",
+      features: ["Fund Utilization Certifications", "Stage-wise Completion Verification", "Bank Coordination", "Compliance Certificates"]
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: "Custom RERA Support Services",
       description: "Tailored solutions for specific RERA requirements including modifications, extensions, and corrections.",
-      features: ["Project Detail Modifications", "Validity Extensions", "Form Corrections", "Complaint Responses"]
-    },
-    {
-      icon: <Scale className="w-8 h-8" />,
-      title: "Legal Advisory & Due Diligence",
-      description: "Expert legal consultation for real estate transactions, regulatory compliance, and risk mitigation strategies.",
-      features: ["Legal Documentation", "Risk Assessment", "Contract Review", "Regulatory Guidance"]
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Strategic Consulting",
-      description: "Professional consultation for developers, investors, and stakeholders in navigating complex real estate regulations.",
-      features: ["Strategic Planning", "Market Analysis", "Investment Advisory", "Stakeholder Management"]
-    },
-    {
-      icon: <FileText className="w-8 h-8" />,
-      title: "Dispute Resolution & Mediation",
-      description: "Specialized services for resolving RERA-related disputes, complaints, and regulatory conflicts efficiently.",
-      features: ["Mediation Services", "Complaint Resolution", "Legal Representation", "Settlement Negotiation"]
+      features: ["Project Detail Modifications", "Extension of Project Validity", "Form Corrections", "Complaint Responses"]
     }
   ];
 
@@ -123,21 +130,21 @@ function Home() {
       role: "Senior Consultant – Regulatory Compliance & Certification",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face",
       expertise: ["RERA CA Certifications", "Statutory Compliance", "Project Financial Advisory", "Developer Structuring"],
-      description: "A seasoned Chartered Accountant with expertise in statutory audit, RERA certifications, and financial oversight of real estate projects."
+      description: "A seasoned Chartered Accountant with years of experience in statutory audit, RERA certifications, and financial oversight of real estate projects."
     },
     {
       name: "CA Danish A. Akbani",
       role: "Lead Consultant – Project Registration & Strategic Operations",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face",
-      expertise: ["End-to-end Project Registration", "RERA Documentation", "Developer Compliance", "Client Engagement"],
-      description: "A dynamic Chartered Accountant and co-founder, bringing sharp attention to detail and deep understanding of RERA regulatory framework."
+      expertise: ["End-to-end Project Registration", "RERA Documentation", "Developer and Agent Compliance", "Client Engagement & Education"],
+      description: "A dynamic Chartered Accountant and co-founder of RERA INSIGHTS, bringing sharp attention to detail and deep understanding of RERA regulatory framework."
     },
     {
       name: "Taher K. Ratlamwala",
       role: "Executive – Documentation & Tech Integration",
       image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=300&h=300&fit=crop&crop=face",
-      expertise: ["RERA Portal Management", "Document Preparation", "Data Compilation", "QPR Filing"],
-      description: "Responsible for back-end operations, document compilation, and tech-based tracking of compliance timelines with precision."
+      expertise: ["RERA Portal Management", "Document Preparation", "Data Compilation & Uploads", "Reporting & QPR Filing"],
+      description: "Responsible for back-end operations, document compilation, formatting, portal filings, and tech-based tracking of compliance timelines with precision."
     }
   ];
 
@@ -629,6 +636,16 @@ function Home() {
           </div>
         </div>
       </section>
+      {/* Scroll to Top Button */}
+      {isScrollBtnVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-300 z-50"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
     </div>
   );
 }
