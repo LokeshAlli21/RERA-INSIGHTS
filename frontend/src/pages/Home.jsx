@@ -128,21 +128,21 @@ function Home() {
     {
       name: "CA Huzaifa S. Sanawadwala",
       role: "Senior Consultant – Regulatory Compliance & Certification",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face",
+      image: "./team/ca-huzaifa.jpeg",
       expertise: ["RERA CA Certifications", "Statutory Compliance", "Project Financial Advisory", "Developer Structuring"],
       description: "A seasoned Chartered Accountant with years of experience in statutory audit, RERA certifications, and financial oversight of real estate projects."
     },
     {
       name: "CA Danish A. Akbani",
       role: "Lead Consultant – Project Registration & Strategic Operations",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face",
+      image: "./team/ca-danish.jpeg",
       expertise: ["End-to-end Project Registration", "RERA Documentation", "Developer and Agent Compliance", "Client Engagement & Education"],
       description: "A dynamic Chartered Accountant and co-founder of RERA INSIGHTS, bringing sharp attention to detail and deep understanding of RERA regulatory framework."
     },
     {
       name: "Taher K. Ratlamwala",
       role: "Executive – Documentation & Tech Integration",
-      image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=300&h=300&fit=crop&crop=face",
+      image: "./team/taher.jpeg",
       expertise: ["RERA Portal Management", "Document Preparation", "Data Compilation & Uploads", "Reporting & QPR Filing"],
       description: "Responsible for back-end operations, document compilation, formatting, portal filings, and tech-based tracking of compliance timelines with precision."
     }
