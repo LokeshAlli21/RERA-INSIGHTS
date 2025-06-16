@@ -88,34 +88,73 @@ function Home() {
   ];
 
   const testimonials = [
-    {
-      name: "Rajesh Kumar",
-      role: "Real Estate Developer",
-      company: "Kumar Constructions",
-      content: "RERA INSIGHTS transformed our project registration process. Their expertise in RERA compliance saved us months of delays and ensured smooth approvals.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      project: "Luxury Residential Complex"
-    },
-    {
-      name: "Priya Sharma",
-      role: "Investment Director",
-      company: "Apex Realty Fund",
-      content: "Their strategic insights and regulatory expertise have been invaluable for our portfolio. The team consistently delivers beyond expectations.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      project: "₹500Cr Investment Portfolio"
-    },
-    {
-      name: "Amit Patel",
-      role: "Managing Director",
-      company: "Patel Infrastructure",
-      content: "Working with RERA INSIGHTS has been a game-changer. Their comprehensive approach to RERA compliance gave us complete peace of mind.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      project: "Mixed-Use Development"
-    }
-  ];
+  {
+    name: "Paradise Associates",
+    content: "RERA INSIGHTS helped us get our project registered smoothly in record time, letting us focus on sales without worrying about compliance.",
+    rating: 5,
+    image: "", // Add image URL if needed
+  },
+  {
+    name: "RAJ & RAJ Construction",
+    content: "They handled our complex documentation with ease and ensured hassle-free certification under tight deadlines.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "RAJ ASSOCIATES",
+    content: "We’ve registered multiple projects through RERA INSIGHTS — their consistency and professionalism keep us coming back.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "S S ASSOCIATES",
+    content: "Thanks to their step-by-step guidance, we completed our registration and QPR filings without a single error.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "Shivaji Land and Developers",
+    content: "We faced repeated delays earlier, but with RERA INSIGHTS, our compliance calendar is now perfectly managed.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "SHIVAJI KINGDOM 3",
+    content: "From drafting to certification, every aspect of our large-scale project was handled efficiently and on time.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "SHIVAJI HOME INFRA",
+    content: "Their team brought structure and transparency to our RERA filings — highly recommended for growing firms.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "SHAKTI BUILDERS",
+    content: "As a first-time builder under RERA, we were clueless. RERA INSIGHTS gave us complete hand-holding support.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "Mahesh Chute",
+    content: "Being an individual promoter, I needed clear guidance — and this team made sure nothing was missed.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "AASMA BUILDCON",
+    content: "They not only filed our RERA registration but also supported us with advisory and quarterly updates.",
+    rating: 5,
+    image: "",
+  },
+  {
+    name: "FICON INFRASTRUCTURE",
+    content: "Their depth of understanding in RERA norms and their proactive service makes them our go-to consultants.",
+    rating: 5,
+    image: "",
+  }
+];
 
   const stats = [
     { number: "1000+", label: "Projects Successfully Registered", icon: <Building className="w-5 h-5" /> },
@@ -208,14 +247,14 @@ function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden  " style={{backgroundImage: "url('./home-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10"></div>
-        <div className="max-w-7xl mx-auto relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-blue-200">
+        <div className="max-w-7xl mx-auto relative ">
+          <div className="grid lg:grid-cols-2 gap-16 items-center ">
+            <div className={`transform transition-all   duration-1000   ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
+              <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4 mt-4 border border-blue-200">
                 <Award className="w-4 h-4 mr-2" />
-                Specialized RERA Consultancy Since 2015
+                Specialized RERA Consultancy Since 2017
               </div>
               <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 mb-8 leading-tight">
                 Simplifying{' '}
@@ -224,23 +263,23 @@ function Home() {
                 </span>{' '}
                 <br />Compliance
               </h1>
-              <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
+              <p className="text-xl text-black rounded-2xl  mb-10 leading-relaxed max-w-2xl">
                 Expert RERA consulting services ensuring complete regulatory compliance for real estate projects under RERA Act, 2016. 
                 From registration to ongoing support, we deliver results that matter.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {/* <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
                   Start Your RERA Registration
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="group border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center justify-center">
+                <a  href="tel:+918010193788" className="group border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300 flex items-center justify-center">
                   <Phone className="w-5 h-5 mr-2" />
                   Call: 80101 93788
-                </button>
-              </div>
+                </a>
+              </div> */}
               
               {/* Quick Stats Bar */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/50">
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg ">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {stats.slice(0, 4).map((stat, index) => (
                     <div key={index} className="text-center">
@@ -255,28 +294,7 @@ function Home() {
               </div>
             </div>
             
-            <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-3xl transform rotate-3 opacity-20"></div>
-                <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-white/50">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
-                    alt="Modern office building representing RERA compliance"
-                    className="w-full h-80 object-cover rounded-2xl"
-                  />
-                  <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="font-semibold text-slate-800">RERA Certified</span>
-                      <CheckCircle className="w-5 h-5 text-green-500" />
-                    </div>
-                  </div>
-                  <div className="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-xl shadow-lg">
-                    <div className="text-sm font-medium">98.7% Success Rate</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -325,9 +343,9 @@ function Home() {
                   ))}
                 </div>
                 
-                <button className="w-full bg-gradient-to-r from-slate-800 to-slate-900 text-white py-3 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 group-hover:from-blue-600 group-hover:to-indigo-600">
+                {/* <button className="w-full bg-gradient-to-r from-slate-800 to-slate-900 text-white py-3 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 group-hover:from-blue-600 group-hover:to-indigo-600">
                   Learn More
-                </button>
+                </button> */}
               </div>
             ))}
           </div>
@@ -335,7 +353,7 @@ function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8" id='our-team'>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
@@ -382,7 +400,7 @@ function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white" id='why'>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -412,7 +430,7 @@ function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50" id='our-process'>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
@@ -449,14 +467,14 @@ function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white" id='success-stories'>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Client <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Success Stories</span>
             </h2>
             <p className="text-xl text-slate-300">
-              Hear from industry leaders who trust RERA INSIGHTS for their RERA compliance needs
+              Real estate players who trusted RERA INSIGHTS for smooth and compliant project journeys
             </p>
           </div>
           
@@ -464,7 +482,10 @@ function Home() {
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/20">
               <div className="text-center">
                 <img 
-                  src={testimonials[currentTestimonial].image}
+                  src={
+                    testimonials[currentTestimonial].image ||
+                    `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonials[currentTestimonial].name)}&background=0D8ABC&color=fff`
+                  }
                   alt={testimonials[currentTestimonial].name}
                   className="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-white/20"
                 />
@@ -515,10 +536,10 @@ function Home() {
                Stay updated with RERA regulations and industry best practices
               </p>
             </div>
-            <button className="hidden md:flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+            {/* <button className="hidden md:flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
               View All Articles
               <ArrowRight className="w-4 h-4 ml-2" />
-            </button>
+            </button> */}
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -555,7 +576,7 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+      <section id='contact' className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="max-w-6xl mx-auto text-center relative">
           <div className="mb-8">
@@ -570,7 +591,7 @@ function Home() {
               </span>
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-12">
-              Join 1000+ successful projects that have trusted RERA INSIGHTS for complete regulatory compliance. 
+              Join 1000+ successful promoters that have trusted RERA INSIGHTS for complete regulatory compliance. 
               Get your free consultation today and accelerate your project approvals.
             </p>
           </div>
@@ -601,7 +622,7 @@ function Home() {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="group bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
               Start Free Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -610,7 +631,7 @@ function Home() {
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Meeting
             </button>
-          </div>
+          </div> */}
           
           <div className="mt-12 pt-8 border-t border-white/20">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

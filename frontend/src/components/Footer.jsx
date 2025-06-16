@@ -53,7 +53,7 @@
 // export default Footer
 
 import React from 'react'
-import { Shield, Phone, Mail, MapPin } from 'lucide-react';
+import { Shield, Phone, Mail, MapPin, Check  } from 'lucide-react';
 
 function Footer() {
   return (
@@ -86,7 +86,11 @@ function Footer() {
                 </div>
                 <div className="flex items-start text-slate-300">
                   <MapPin className="w-4 h-4 mr-3 mt-1 text-blue-400 flex-shrink-0" />
-                  <span className="text-sm">Trimurti Appt., Opp. Mankapur Sports Complex, behind Kalpana Talkies, Mankapur, Nagpur-440030</span>
+                  <span className="text-sm"><b>Head Office:</b> Trimurti Appt., Opp. Mankapur Sports Complex, behind Kalpana Talkies, Mankapur, Nagpur-440030</span>
+                </div>
+                <div className="flex items-start text-slate-300">
+                  <MapPin className="w-4 h-4 mr-3 mt-1 text-blue-400 flex-shrink-0" />
+                  <span className="text-sm"><b>Main Branch:</b> 5th Floor, 502, Town Centre, 1, Andheri - Kurla Rd, Mittal Industrial Estate, Marol Naka, Andheri East, Mumbai, Maharashtra 400059</span>
                 </div>
               </div>
             </div>
@@ -94,36 +98,36 @@ function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-6">Services</h4>
               <ul className="space-y-3 text-slate-400">
-                <li className="hover:text-white transition-colors cursor-pointer">RERA Project Registration</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Agent License Registration</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Quarterly Progress Reports</li>
-                <li className="hover:text-white transition-colors cursor-pointer">RERA Advisory Services</li>
-                <li className="hover:text-white transition-colors cursor-pointer">CA Certifications</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Custom RERA Support</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> RERA Project Registration</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> Agent License Registration</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> Quarterly Progress Reports</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> RERA Advisory Services</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> CA Certifications</li>
+                <li className="hover:text-white transition-colors cursor-pointer flex flex-row flex-nowrap group"><Check className="w-4 h-4 mr-3 mt-1 text-green-400 group-hover:text-green-600 group-hover:h-5 group-hover:w-5 group-hover:ml-1 flex-shrink-0 duration-300 " /> Custom RERA Support</li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-lg font-semibold mb-6">Company</h4>
               <ul className="space-y-3 text-slate-400">
-                <li className="hover:text-white transition-colors cursor-pointer">About Us</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Our Team</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Why Choose Us</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Client Success Stories</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Our Process</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#services">About Us</a></li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#our-team">Our Team</a></li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#why">Why Choose Us</a></li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#success-stories">Client Success Stories</a></li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#our-process">Our Process</a></li>
+                <li className="hover:text-white transition-colors cursor-pointer"><a href="#contact">Contact</a></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2024 RERA INSIGHTS. All rights reserved. | Specialized RERA Consultancy Services
+              &copy; 2023 RERA INSIGHTS. All rights reserved. | Developed by <a href="https://oskartech.in/" className="text-blue-400 hover:text-blue-500 transition-colors">Oskar Technologies</a>
             </p>
-            <div className="flex items-center space-x-6 text-slate-400">
+            {/* <div className="flex items-center space-x-6 text-slate-400">
               <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
               <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>

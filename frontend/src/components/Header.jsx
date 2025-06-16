@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, ChevronDown, Menu, X } from 'lucide-react';
+import { Phone, Mail, ChevronDown, Menu, X, MessageCircle } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,20 +24,7 @@ const Header = () => {
   }, [location]);
 
   const navigationItems = [
-    { label: 'Home', path: '/', key: 'home' },
-    { label: 'About', path: '/about', key: 'about' },
-    { label: 'Services', path: '/services', key: 'services' },
-    { 
-      label: 'Resources', 
-      key: 'resources',
-      dropdown: [
-        { label: 'Case Studies', path: '/case-studies', key: 'case-studies' },
-        { label: 'Insights', path: '/insights', key: 'insights' },
-        { label: 'White Papers', path: '/whitepapers', key: 'whitepapers' },
-        { label: 'Blog', path: '/blog', key: 'blog' }
-      ]
-    },
-    { label: 'Contact', path: '/contact', key: 'contact' }
+    // { label: 'Home', path: '/', key: 'home' },
   ];
 
   const isCurrentPage = (path) => {
@@ -63,7 +50,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex-1">
             <Link to="/" className="flex items-center group">
               <div className="relative">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
@@ -71,7 +58,7 @@ const Header = () => {
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600' 
                     : 'bg-white/20 backdrop-blur-sm '
                 }`}>
-                  <img src="logo.jpg" alt="RERA INSIGHTS" />
+                  <img src="logo.png" className='rounded-xl' alt="RERA INSIGHTS" />
                   {/* <span className={`text-xl font-bold transition-colors duration-300 ${
                     isScrolled ? 'text-white' : 'text-slate-900'
                   }`}>
@@ -95,7 +82,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex mx-10 items-center space-x-1">
             {navigationItems.map((item) => (
               <div key={item.key} className="relative">
                 {item.dropdown ? (
@@ -176,15 +163,15 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>80101 93788</span>
             </a>
-            <Link
-              to="/get-started"
-              className="group inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            <a
+              href="https://wa.me/918010193788"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              Get Started
-              <svg className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -268,12 +255,15 @@ const Header = () => {
                   <Phone className="w-4 h-4" />
                   <span>Call: 80101 93788</span>
                 </a>
-                <Link
-                  to="/get-started"
-                  className="block w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
+                <a
+                  href="https://wa.me/918010193788"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-xl hover:from-green-600 hover:to-green-700 transition-all shadow-lg"
                 >
-                  Get Started
-                </Link>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </nav>
           </div>
