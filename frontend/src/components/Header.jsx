@@ -164,7 +164,7 @@ const Header = () => {
               <span>80101 93788</span>
             </a>
             <a
-              href="https://wa.me/918010193788"
+              href="https://wa.me/918010193788?text=Hello%2C%20I%20want%20to%20know%20more%20about%20RERA%20Registration.%20Can%20you%20please%20help%20me%20with%20it%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
