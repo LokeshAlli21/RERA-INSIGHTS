@@ -157,10 +157,10 @@ function Home() {
 ];
 
   const stats = [
-    { number: "1000+", label: "Projects Successfully Registered", icon: <Building className="w-5 h-5" /> },
-    { number: "98.7%", label: "First-Time Approval Rate", icon: <CheckCircle className="w-5 h-5" /> },
-    { number: "1500+", label: "Satisfied Clients", icon: <Users className="w-5 h-5" /> },
-    { number: "10+", label: "Years of Combined Experience", icon: <Award className="w-5 h-5" /> }
+    { number: "375+", label: "Projects Successfully Registered", icon: <Building className="w-5 h-5" /> },
+    { number: "750+", label: "Quarterly Progress Report Submitted", icon: <CheckCircle className="w-5 h-5" /> },
+    { number: "125+", label: "RERA Advisory & Legal Compliance Done", icon: <Users className="w-5 h-5" /> },
+    { number: "7+", label: "Years of Combined Experience", icon: <Award className="w-5 h-5" /> }
   ];
 
   const teamMembers = [
