@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { CheckCircle, FileText, AlertTriangle, HelpCircle, Users, Clock, ChevronDown, ChevronUp, ArrowUpRight, Calendar } from 'lucide-react';
+import { CheckCircle, FileText, AlertTriangle, HelpCircle, Users, Clock, ChevronDown, ChevronUp, ArrowUpRight, Calendar, Phone, MessageCircle, X } from 'lucide-react';
 
 const ReraExtension = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentSection, setCurrentSection] = useState('overview');
+    const [showContactModal, setShowContactModal] = useState(false);
   
   const sectionRefs = {
     overview: useRef(null),
@@ -25,6 +26,19 @@ const ReraExtension = () => {
     { id: 'faqs', label: 'FAQs', icon: '❓' },
     { id: 'contact', label: 'Get Started', icon: '🚀' }
   ];
+
+    const handleGetStarted = () => {
+    setShowContactModal(true);
+  };
+
+  const handleCall = () => {
+    window.open('tel:+918010893788', '_self');
+  };
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent('Hi RERA INSIGHTS! I need help with Quarterly Progress Reports (QPRs). Can we discuss my requirements?');
+    window.open(`https://wa.me/918010893788?text=${message}`, '_blank');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -330,15 +344,78 @@ const ReraExtension = () => {
             <div ref={sectionRefs.contact} className="text-center bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm"></div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
-                <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                  Let RERA INSIGHTS handle your extension process professionally and efficiently.
-                </p>
-                <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg">
-                  Contact Us Today
+                <div className="mb-8">
+                  <h3 className="text-3xl font-bold mb-4 flex items-center justify-center">
+                    📞 Need Help? Contact RERA INSIGHTS Today!
+                  </h3>
+                  <p className="text-xl opacity-90 mb-6 max-w-3xl mx-auto leading-relaxed">
+                    Whether you're launching a new project, seeking extension, or managing ongoing compliance — RERA INSIGHTS is your trusted partner in regulatory support.
+                  </p>
+                  
+                  {/* Contact Information */}
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+                    <div className="flex items-center bg-white/20 rounded-full px-6 py-3 backdrop-blur-sm">
+                      <span className="text-lg mr-2">📧</span>
+                      <span className="font-medium">rera.insights@gmail.com</span>
+                    </div>
+                    <div className="flex items-center bg-white/20 rounded-full px-6 py-3 backdrop-blur-sm">
+                      <span className="text-lg mr-2">📱</span>
+                      <span className="font-medium">+91 80108 93788</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={handleGetStarted}
+                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                >
+                  Get Started Today
                 </button>
               </div>
             </div>
+
+            {/* Contact Modal */}
+            {showContactModal && (
+              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl relative">
+                  <button
+                    onClick={() => setShowContactModal(false)}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    <X size={24} />
+                  </button>
+                  
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Contact RERA INSIGHTS</h3>
+                    <p className="text-gray-600">Choose your preferred way to get in touch</p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <button
+                      onClick={handleCall}
+                      className="w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-4 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg"
+                    >
+                      <Phone className="mr-3" size={20} />
+                      Call Now: +91 80108 93788
+                    </button>
+                    
+                    <button
+                      onClick={handleWhatsApp}
+                      className="w-full flex items-center justify-center bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-4 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg"
+                    >
+                      <MessageCircle className="mr-3" size={20} />
+                      WhatsApp: +91 80108 93788
+                    </button>
+                  </div>
+                  
+                  <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                    <p className="text-sm text-gray-500">
+                      📧 rera.insights@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

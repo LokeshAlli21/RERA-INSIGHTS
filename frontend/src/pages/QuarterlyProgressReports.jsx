@@ -1,44 +1,31 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { CheckCircle, FileText, AlertTriangle, HelpCircle, Users, Building, ChevronDown, ChevronUp, ArrowUpRight, Clock, Phone, MessageCircle, X } from 'lucide-react';
+import { CheckCircle, FileText, AlertTriangle, HelpCircle, Users, BarChart3, ChevronDown, ChevronUp, ArrowUpRight, Calendar, Clock, Phone, MessageCircle, X } from 'lucide-react';
 
-const ReraRegistration = () => {
+const QuarterlyProgressReports = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentSection, setCurrentSection] = useState('overview');
-    const [showContactModal, setShowContactModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   
   const sectionRefs = {
     overview: useRef(null),
-    mandatory: useRef(null),
-    documents: useRef(null),
+    timeline: useRef(null),
+    contents: useRef(null),
     services: useRef(null),
-    mistakes: useRef(null),
+    penalties: useRef(null),
     faqs: useRef(null),
     contact: useRef(null)
   };
 
   const tableOfContents = [
-    { id: 'overview', label: 'What is RERA?', icon: '📋' },
-    { id: 'mandatory', label: 'When Required', icon: '🏢' },
-    { id: 'documents', label: 'Documents', icon: '📄' },
-    { id: 'services', label: 'Our Services', icon: '🤝' },
-    { id: 'mistakes', label: 'Common Mistakes', icon: '⚠️' },
+    { id: 'overview', label: 'What are QPRs?', icon: '📊' },
+    { id: 'timeline', label: 'Filing Timeline', icon: '⏱️' },
+    { id: 'contents', label: 'QPR Contents', icon: '📝' },
+    { id: 'services', label: 'Our Services', icon: '💼' },
+    { id: 'penalties', label: 'Penalties', icon: '⚠️' },
     { id: 'faqs', label: 'FAQs', icon: '❓' },
     { id: 'contact', label: 'Get Started', icon: '🚀' }
   ];
-
-    const handleGetStarted = () => {
-    setShowContactModal(true);
-  };
-
-  const handleCall = () => {
-    window.open('tel:+918010893788', '_self');
-  };
-
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent('Hi RERA INSIGHTS! I need help with Quarterly Progress Reports (QPRs). Can we discuss my requirements?');
-    window.open(`https://wa.me/918010893788?text=${message}`, '_blank');
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,51 +63,70 @@ const ReraRegistration = () => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const handleGetStarted = () => {
+    setShowContactModal(true);
+  };
+
+  const handleCall = () => {
+    window.open('tel:+918010893788', '_self');
+  };
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent('Hi RERA INSIGHTS! I need help with Quarterly Progress Reports (QPRs). Can we discuss my requirements?');
+    window.open(`https://wa.me/918010893788?text=${message}`, '_blank');
+  };
+
   const faqs = [
     {
-      question: "How long does the process take?",
-      answer: "On average, 15–30 working days depending on the completeness of documents and authority processing speed."
+      question: "Do I need to file QPR even if there's no progress?",
+      answer: "Yes. Submit a NIL progress report with reasons."
     },
     {
-      question: "Can I advertise my project before registration?",
-      answer: "No. Marketing, advertisements, or booking cannot be done before RERA approval."
+      question: "What if I miss a QPR deadline?",
+      answer: "File immediately with a cover letter. Avoid recurrence."
     },
     {
-      question: "Are plotted developments exempt?",
-      answer: "Only if below 500 sq. meters or under 8 units. Else, RERA is mandatory."
+      question: "Can reports be edited after submission?",
+      answer: "No. Most state portals lock submitted reports."
     },
     {
-      question: "How is RERA INSIGHTS different?",
-      answer: "We combine expert knowledge with hands-on documentation, saving you time and avoiding penalties."
+      question: "How can RERA INSIGHTS help?",
+      answer: "We ensure timely, correct filing every quarter so you stay compliant and worry-free."
     }
   ];
 
-  const promoterDocs = [
-    "PAN Card of the promoter",
-    "Legal title deed of the land",
-    "Encumbrance certificate (EC) from a competent authority",
-    "Project layout, floor plans, and sanctioned site plan",
-    "Development plan with FSI details",
-    "Certificates from engineer, architect, and CA",
-    "Promoter details: background, experience, past project status"
+  const quarters = [
+    { name: "Q1", period: "April – June", color: "from-green-500 to-emerald-500" },
+    { name: "Q2", period: "July – September", color: "from-blue-500 to-cyan-500" },
+    { name: "Q3", period: "October – December", color: "from-purple-500 to-pink-500" },
+    { name: "Q4", period: "January – March", color: "from-orange-500 to-red-500" }
   ];
 
-  const agentDocs = [
-    "Individual/firm PAN & Aadhar",
-    "Business registration documents",
-    "Address proof of office premises",
-    "Photographs of proprietor/partners"
+  const qprContents = [
+    "Project progress photographs",
+    "Details of work completed and in progress",
+    "Number of units booked/sold",
+    "Financial progress (receipts vs. expenditures)",
+    "Fund utilization certificate by CA",
+    "Status vs. estimated project timeline"
   ];
 
-  const commonMistakes = [
-    "Uploading incorrect or outdated documents",
-    "Providing vague or inconsistent information in forms",
-    "Not coordinating properly with CA/engineer/architect",
-    "Missing deadlines for rectification post-query"
+  const services = [
+    "Drafting detailed QPRs with correct formatting",
+    "Coordinating with architect, engineer, and CA for inputs",
+    "Uploading on the RERA portal",
+    "Rectifying errors raised by the authority"
+  ];
+
+  const penalties = [
+    "₹50,000+ fines for each missed submission",
+    "Authority scrutiny and warning notices",
+    "Impact on future extension or approvals",
+    "Tarnished reputation with buyers"
   ];
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 pb-8">
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Table of Contents - Sticky Sidebar */}
@@ -175,134 +181,77 @@ const ReraRegistration = () => {
                   <span className="text-sm font-medium">RERA INSIGHTS</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                  RERA Registration
+                  Quarterly Progress Reports
                   <br />
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-300">
-                    Made Effortless
+                    Build Trust with Every Update
                   </span>
                 </h1>
                 <p className="text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
-                  Simplify your real estate journey with expert-led RERA registration services
+                  Ensure compliance and boost transparency by submitting quarterly updates through RERA INSIGHTS
                 </p>
               </div>
             </div>
 
-            {/* What is RERA Registration */}
+            {/* What are QPRs */}
             <div className="bg-white rounded-2xl border border-green-100 shadow-xl overflow-hidden">
               <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-6">
                 <div className="flex items-center text-white">
-                  <CheckCircle className="mr-4" size={28} />
-                  <h2 className="text-2xl font-bold">What is RERA Registration?</h2>
+                  <BarChart3 className="mr-4" size={28} />
+                  <h2 className="text-2xl font-bold">What are QPRs?</h2>
                 </div>
               </div>
               <div className="p-8">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  RERA Registration is a statutory requirement under the Real Estate (Regulation and Development) Act, 2016. 
-                  All developers and real estate agents involved in selling, marketing, or advertising real estate projects must 
-                  register with their respective state RERA authority before commencing any such activities. This mandate is 
-                  designed to protect homebuyers, enhance transparency in the sector, and ensure timely completion of projects. 
-                  Registration builds buyer trust, fosters accountability, and improves access to credible information.
+                  Quarterly Progress Reports (QPRs) are mandatory submissions by the promoter to the RERA authority to update on project development, fund utilization, unit sales, and construction progress. They are an essential compliance requirement that keeps buyers and authorities informed, and also reflects the credibility of the promoter.
                 </p>
               </div>
             </div>
 
-            {/* When is RERA Registration Mandatory */}
-            <div ref={sectionRefs.mandatory} className="bg-white rounded-2xl border border-blue-100 shadow-xl overflow-hidden">
+            {/* Filing Timeline */}
+            <div ref={sectionRefs.timeline} className="bg-white rounded-2xl border border-blue-100 shadow-xl overflow-hidden">
               <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-6">
                 <div className="flex items-center text-white">
-                  <Building className="mr-4" size={28} />
-                  <h2 className="text-2xl font-bold">When is RERA Registration Mandatory?</h2>
+                  <Calendar className="mr-4" size={28} />
+                  <h2 className="text-2xl font-bold">When Are QPRs Filed?</h2>
                 </div>
               </div>
               <div className="p-8">
-                <p className="text-gray-700 mb-6 text-lg">You are required to register under RERA if:</p>
+                <p className="text-gray-700 mb-6 text-lg">Promoters must submit QPRs at the end of every financial quarter:</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {[
-                    "The total area of land proposed for development exceeds 500 sq. meters",
-                    "The number of proposed apartments exceeds eight (inclusive of all phases)",
-                    "The project is ongoing and does not yet have a Completion Certificate",
-                    "You are a real estate agent brokering deals for any RERA-registered projects"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start p-4 bg-blue-50 rounded-xl">
-                      <span className="text-blue-600 mr-3 mt-1">•</span>
-                      <span className="text-gray-700">{item}</span>
+                  {quarters.map((quarter, index) => (
+                    <div key={index} className={`p-6 rounded-xl bg-gradient-to-r ${quarter.color} text-white shadow-lg`}>
+                      <div className="text-2xl font-bold mb-2">{quarter.name}</div>
+                      <div className="text-white/90">{quarter.period}</div>
                     </div>
                   ))}
                 </div>
                 <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-400 p-6 rounded-r-xl">
                   <p className="text-yellow-800 font-medium flex items-center">
-                    <AlertTriangle className="mr-2" size={20} />
-                    Failure to register can result in heavy penalties, legal actions, and an inability to market your project legally.
+                    <Clock className="mr-2" size={20} />
+                    Each report must be submitted within 15 days of quarter-end. Delays can invite penalties.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Document Checklist */}
-            <div ref={sectionRefs.documents} className="bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden">
+            {/* QPR Contents */}
+            <div ref={sectionRefs.contents} className="bg-white rounded-2xl border border-purple-100 shadow-xl overflow-hidden">
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6">
                 <div className="flex items-center text-white">
                   <FileText className="mr-4" size={28} />
-                  <h2 className="text-2xl font-bold">Document Checklist</h2>
+                  <h2 className="text-2xl font-bold">QPR Contents</h2>
                 </div>
               </div>
               <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  {/* For Promoters */}
-                  <div className="border border-gray-200 rounded-xl overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('promoters')}
-                      className="w-full p-6 text-left flex items-center justify-between bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all duration-200"
-                    >
-                      <h3 className="font-bold text-gray-800 text-lg">For Promoters</h3>
-                      <div className="bg-white rounded-full p-2 shadow-sm">
-                        {activeSection === 'promoters' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                      </div>
-                    </button>
-                    {activeSection === 'promoters' && (
-                      <div className="p-6 bg-white">
-                        <div className="space-y-3">
-                          {promoterDocs.map((doc, index) => (
-                            <div key={index} className="flex items-start p-3 bg-green-50 rounded-lg">
-                              <CheckCircle className="text-green-500 mr-3 mt-0.5 flex-shrink-0" size={18} />
-                              <span className="text-gray-700">{doc}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* For Real Estate Agents */}
-                  <div className="border border-gray-200 rounded-xl overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('agents')}
-                      className="w-full p-6 text-left flex items-center justify-between bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all duration-200"
-                    >
-                      <h3 className="font-bold text-gray-800 text-lg">For Real Estate Agents</h3>
-                      <div className="bg-white rounded-full p-2 shadow-sm">
-                        {activeSection === 'agents' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                      </div>
-                    </button>
-                    {activeSection === 'agents' && (
-                      <div className="p-6 bg-white">
-                        <div className="space-y-3">
-                          {agentDocs.map((doc, index) => (
-                            <div key={index} className="flex items-start p-3 bg-green-50 rounded-lg">
-                              <CheckCircle className="text-green-500 mr-3 mt-0.5 flex-shrink-0" size={18} />
-                              <span className="text-gray-700">{doc}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="mt-8 p-4 bg-gray-50 rounded-xl">
-                  <p className="text-gray-700 text-center">
-                    All documents must be scanned and submitted via the online RERA portal of your respective state.
-                  </p>
+                <p className="text-gray-700 mb-6 text-lg">Each quarterly report includes:</p>
+                <div className="space-y-3">
+                  {qprContents.map((content, index) => (
+                    <div key={index} className="flex items-start p-4 bg-purple-50 rounded-xl">
+                      <CheckCircle className="text-purple-600 mr-3 mt-0.5 flex-shrink-0" size={18} />
+                      <span className="text-gray-700">{content}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -312,57 +261,46 @@ const ReraRegistration = () => {
               <div className="bg-gradient-to-r from-indigo-500 to-blue-500 p-6">
                 <div className="flex items-center text-white">
                   <Users className="mr-4" size={28} />
-                  <h2 className="text-2xl font-bold">Our Role at RERA INSIGHTS</h2>
+                  <h2 className="text-2xl font-bold">RERA INSIGHTS Takes Care Of:</h2>
                 </div>
               </div>
               <div className="p-8">
-                <p className="text-gray-700 mb-8 text-lg">
-                  At <strong>RERA INSIGHTS</strong>, we simplify the entire process so you never face rejections or delays. 
-                  Our expert-led approach includes:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Complete guidance on eligibility and requirements",
-                    "Collection and verification of documents",
-                    "Drafting and uploading declarations and affidavits",
-                    "Continuous liaison with architects, CAs, and engineers",
-                    "Portal login, application filing, and authority follow-ups",
-                    "Regular status tracking and updates"
-                  ].map((service, index) => (
+                <div className="grid gap-4 mb-6">
+                  {services.map((service, index) => (
                     <div key={index} className="flex items-start p-4 bg-indigo-50 rounded-xl">
                       <CheckCircle className="text-indigo-600 mr-3 mt-0.5 flex-shrink-0" size={18} />
                       <span className="text-gray-700">{service}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
+                <div className="p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
                   <p className="text-indigo-800 font-medium text-center text-lg">
-                    Let us handle the technical complexities while you focus on what you do best — building great projects.
+                    Our clients receive proactive reminders and updates so they never miss a deadline.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Common Mistakes */}
-            <div ref={sectionRefs.mistakes} className="bg-white rounded-2xl border border-red-100 shadow-xl overflow-hidden">
+            {/* Penalties */}
+            <div ref={sectionRefs.penalties} className="bg-white rounded-2xl border border-red-100 shadow-xl overflow-hidden">
               <div className="bg-gradient-to-r from-red-500 to-pink-500 p-6">
                 <div className="flex items-center text-white">
                   <AlertTriangle className="mr-4" size={28} />
-                  <h2 className="text-2xl font-bold">Avoid These Common Mistakes</h2>
+                  <h2 className="text-2xl font-bold">Penalties for Non-Compliance</h2>
                 </div>
               </div>
               <div className="p-8">
                 <div className="grid gap-4 mb-6">
-                  {commonMistakes.map((mistake, index) => (
+                  {penalties.map((penalty, index) => (
                     <div key={index} className="flex items-start p-4 bg-red-50 rounded-xl">
                       <span className="text-red-600 mr-3 mt-1 text-xl">×</span>
-                      <span className="text-gray-700">{mistake}</span>
+                      <span className="text-gray-700">{penalty}</span>
                     </div>
                   ))}
                 </div>
                 <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
                   <p className="text-green-800 font-medium text-center text-lg">
-                    Our team ensures every submission is vetted and aligned with RERA expectations.
+                    Stay compliant with RERA INSIGHTS - we ensure timely submissions every quarter.
                   </p>
                 </div>
               </div>
@@ -483,4 +421,4 @@ const ReraRegistration = () => {
   );
 };
 
-export default ReraRegistration;
+export default QuarterlyProgressReports;
