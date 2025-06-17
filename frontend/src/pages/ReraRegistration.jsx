@@ -41,6 +41,9 @@ const ReraRegistration = () => {
   };
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
       
