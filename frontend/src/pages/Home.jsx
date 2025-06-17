@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Shield, Users, FileText, Award, Phone, Mail, MapPin, Star, ArrowRight, CheckCircle, Building, Scale, Calendar, PlayCircle, TrendingUp, Clock, AlertCircle, UserCheck, BookOpen, Briefcase, Target, Globe, Database, PieChart, ArrowUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentStat, setCurrentStat] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -224,24 +227,39 @@ function Home() {
   ];
 
   const insights = [
-    {
-      title: "RERA Compliance: 2025 Updates",
-      excerpt: "Latest regulatory changes and their impact on real estate projects across major Indian states.",
-      readTime: "5 min read",
-      category: "Regulatory Updates"
-    },
-    {
-      title: "Streamlining Project Approvals",
-      excerpt: "Best practices for faster RERA registration and avoiding common compliance pitfalls.",
-      readTime: "7 min read", 
-      category: "Best Practices"
-    },
-    {
-      title: "Investment Due Diligence Guide",
-      excerpt: "Essential checklist for investors evaluating RERA-compliant real estate opportunities.",
-      readTime: "10 min read",
-      category: "Investment Guide"
-    }
+{
+    id: "rera-registration",
+    title: "RERA Registration Made Simple",
+    excerpt: "Complete guide to RERA registration requirements, document checklist, and expert-led services for hassle-free compliance.",
+    readTime: "8 min read",
+    category: "Registration Guide",
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&q=80",
+    icon: "✅",
+    timeline: "15–30 working days",
+    keyBenefit: "Expert guidance with zero rejections"
+  },
+  {
+    id: "rera-extension", 
+    title: "RERA Extension Without Penalties",
+    excerpt: "Timely RERA extension services with proper documentation to avoid legal consequences and project delays.",
+    readTime: "6 min read",
+    category: "Extension Services",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
+    icon: "⏳",
+    timeline: "30–45 days",
+    keyBenefit: "Apply 90 days before expiry for smooth approval"
+  },
+  {
+    id: "quarterly-progress-reports",
+    title: "QPR Compliance Made Easy", 
+    excerpt: "Quarterly progress report submission services ensuring transparency, compliance, and building buyer trust.",
+    readTime: "5 min read",
+    category: "Compliance Reports",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+    icon: "📊", 
+    timeline: "Within 15 days of quarter-end",
+    keyBenefit: "Proactive reminders to never miss deadlines"
+  }
   ];
 
   return (
@@ -541,12 +559,20 @@ function Home() {
               <ArrowRight className="w-4 h-4 ml-2" />
             </button> */}
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {insights.map((article, index) => (
-              <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100">
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 p-6 flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-white/80" />
+            {insights.map((article) => (
+              <div key={article.id} onClick={() => navigate(`/latest-insights/${article.id}`)} className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-slate-100">
+                <div className={`h-48 bg-gradient-to-br from-blue-500 to-indigo-600 ${article.image ? 'p-0' : ' p-6'}  flex items-center justify-center overflow-hidden `}>
+                  {article.image ? (
+                    <img 
+                      src={article.image} 
+                      alt={article.title}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  ) : (
+                    <BookOpen className="w-16 h-16 text-white/80" />
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -564,6 +590,12 @@ function Home() {
                   <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     {article.excerpt}
                   </p>
+                  <div className="mb-2 text-xs text-slate-500">
+                    <span className="font-medium">{article.icon} Timeline:</span> {article.timeline}
+                  </div>
+                  <div className="mb-4 text-xs text-green-700 bg-green-50 px-2 py-1 rounded">
+                    💡 {article.keyBenefit}
+                  </div>
                   <button className="text-blue-600 font-semibold text-sm flex items-center group-hover:text-blue-700 transition-colors">
                     Read Article
                     <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -572,7 +604,7 @@ function Home() {
               </div>
             ))}
           </div>
-        </div>
+    </div>
       </section>
 
       {/* CTA Section */}

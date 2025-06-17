@@ -58,7 +58,7 @@ const Header = () => {
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600' 
                     : 'bg-white/20 backdrop-blur-sm '
                 }`}>
-                  <img src="logo.png" className='rounded-xl' alt="RERA INSIGHTS" />
+                  <img src="../logo.png" className='rounded-xl' alt="RERA INSIGHTS" />
                   {/* <span className={`text-xl font-bold transition-colors duration-300 ${
                     isScrolled ? 'text-white' : 'text-slate-900'
                   }`}>
