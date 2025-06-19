@@ -233,7 +233,7 @@ function Home() {
     excerpt: "Complete guide to RERA registration requirements, document checklist, and expert-led services for hassle-free compliance.",
     readTime: "8 min read",
     category: "Registration Guide",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&q=80",
+    image: "registration.jpeg",
     icon: "✅",
     timeline: "15–30 working days",
     keyBenefit: "Expert guidance with zero rejections"
@@ -244,7 +244,7 @@ function Home() {
     excerpt: "Timely RERA extension services with proper documentation to avoid legal consequences and project delays.",
     readTime: "6 min read",
     category: "Extension Services",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
+    image: "extention.jpg",
     icon: "⏳",
     timeline: "30–45 days",
     keyBenefit: "Apply 90 days before expiry for smooth approval"
@@ -255,7 +255,7 @@ function Home() {
     excerpt: "Quarterly progress report submission services ensuring transparency, compliance, and building buyer trust.",
     readTime: "5 min read",
     category: "Compliance Reports",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+    image: "qpr.jpg",
     icon: "📊", 
     timeline: "Within 15 days of quarter-end",
     keyBenefit: "Proactive reminders to never miss deadlines"
@@ -563,12 +563,12 @@ function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {insights.map((article) => (
               <div key={article.id} onClick={() => navigate(`/latest-insights/${article.id}`)} className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-slate-100">
-                <div className={`h-48 bg-gradient-to-br from-blue-500 to-indigo-600 ${article.image ? 'p-0' : ' p-6'}  flex items-center justify-center overflow-hidden `}>
+                <div className={`h-60 bg-gradient-to-br from-blue-500 to-indigo-600 ${article.image ? 'p-0' : ' p-6'}  flex items-center justify-center overflow-hidden `}>
                   {article.image ? (
                     <img 
                       src={article.image} 
                       alt={article.title}
-                      className="w-full h-full object-cover rounded-lg"
+                      className="w-full h-full object-cover rounded-t-lg"
                     />
                   ) : (
                     <BookOpen className="w-16 h-16 text-white/80" />

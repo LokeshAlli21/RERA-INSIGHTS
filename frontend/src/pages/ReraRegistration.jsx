@@ -250,7 +250,7 @@ const ReraRegistration = () => {
                 </div>
               </div>
               <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-1 gap-8">
                   {/* For Promoters */}
                   <div className="border border-gray-200 rounded-xl overflow-hidden">
                     <button
