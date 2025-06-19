@@ -1,8 +1,0 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /RERA-INSIGHTS/
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /RERA-INSIGHTS/index.html [L]
-</IfModule>

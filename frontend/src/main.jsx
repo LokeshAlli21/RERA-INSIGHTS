@@ -23,10 +23,7 @@ const router = createBrowserRouter([
     ],
     errorElement: <NotFoundPage />
   }
-],
-  {
-    basename: "/RERA-INSIGHTS"  // ✅ THIS IS THE IMPORTANT FIX
-  }
+]
 );
 
 createRoot(document.getElementById('root')).render(

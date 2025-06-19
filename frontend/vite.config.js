@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/RERA-INSIGHTS/', // ← Add this line
+  base: '/', // ← Add this line
   plugins: [
     tailwindcss(),
     react(),
